@@ -89,13 +89,8 @@ class TikTokHashtagScraper:
                 await page.goto(url, wait_until='domcontentloaded', timeout=30000)
                 print(f"🌐 Navigated to hashtag page: {url}")
 
-                # icon = await page.query_selector('[data-e2e="comment-icon"]')
-                # await icon.click()  # 🖱️ Click to load comments!
                 await page.get_by_role("button", name="Refresh").click()
-                captcha_iframe = page.frame_locator('iframe[src*="captcha"]')
 
-                if await captcha_iframe.first.is_visible():
-                    print("CAPTCHA detected")
 
 
                 
